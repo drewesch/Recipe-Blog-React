@@ -1,0 +1,76 @@
+// Import variables from styles
+@import './styles/variables';
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: $spacing-medium;
+  
+  .logo {
+    margin-right: $spacing-medium;
+    
+    img {
+      max-height: 40px;
+    }
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+    
+    a {
+      color: $primary-color;
+      margin-right: $spacing-medium;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  // Mobile Menu Styles
+  .mobile-menu {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .links {
+      display: none;
+    }
+    
+    .mobile-menu {
+      display: block;
+      cursor: pointer;
+      margin-left: auto;
+      
+      .hamburger-icon {
+        display: inline-block;
+        width: 30px;
+        height: 3px;
+        background-color: $primary-color;
+        margin-bottom: 6px;
+        transition: background-color 0.3s ease-in-out;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      
+      &.open {
+        .hamburger-icon {
+          &:first-child {
+            transform: rotate(45deg);
+          }
+          
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          
+          &:last-child {
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+  }
+}
